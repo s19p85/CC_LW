@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+    <tariff>
+        <ram>30 Гб</ram>
+        <storage>350 Гб</storage>
+        <cpu>8 core</cpu>
+        <trafic>64 Тб</trafic>
+        <price>482 руб.</price>
+    </tariff>
+    <tariff>
+        <ram>60 Гб</ram>
+        <storage>930 Гб</storage>
+        <cpu>12 core</cpu>
+        <trafic>64 Тб</trafic>
+        <price>962 руб.</price>
+    </tariff>
+    <tariff>
+        <ram>120 Гб</ram>
+        <storage>2500 Гб</storage>
+        <cpu>32 core</cpu>
+        <trafic>64 Тб</trafic>
+        <price>1928 руб.</price>
+    </tariff>
+    <tariff>
+        <ram>180 Гб</ram>
+        <storage>3600 Гб</storage>
+        <cpu>48 core</cpu>
+        <trafic>64 Тб</trafic>
+        <price>2894 руб.</price>
+    </tariff>
+</catalog>
