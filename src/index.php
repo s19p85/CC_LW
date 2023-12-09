@@ -1,36 +1,34 @@
-<?php
-header("Content-type: text/html; Charset=UTF-8;");
-//Создание объекта и загрузка в него документа
-$sxml = simplexml_load_file("catalog.xml");
-?>
 <html>
 
 <head>
-    <title>Тарифы</title>
+    <title>Каталог товаров</title>
 </head>
 
 <body>
-    <h1>Тарифы на выделенные серверы у провайдера vdsina.ru</h1>
-    <table border="1" width="100%">
+    <h2>Каталог товаров</h2>
+    <table border="0" cellpadding="5" cellspacing="0" width="100%">
         <tr>
-            <th>Память</th>
-            <th>Хранилище</th>
-            <th>Процессор</th>
-            <th>Трафик</th>
-            <th>Цена(день)</th>
+            <th>Автор</th>
+            <th>Название</th>
+            <th>Год издания</th>
+            <th>Цена, руб.</th>
         </tr>
         <?php
-
-        foreach ($sxml->tariff as $tariff) {
-            echo "<tr>";
-            echo "<td>", $tariff->ram, "</td>";
-            echo "<td>", $tariff->storage, "</td>";
-            echo "<td>", $tariff->cpu, "</td>";
-            echo "<td>", $tariff->trafic, "</td>";
-            echo "<td>", $tariff->price, "</td>";
-            echo "</tr>";
-        }
-?>
+            require_once "connect.pg.inc.php";
+            $sql = "SELECT * FROM catalog";
+            $sta = $pdo->query($sql);
+            while ($row = $sta->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+        <tr>
+            <td><?php echo $row["author"] ?></td>
+            <td><?php echo $row["title"] ?></td>
+            <td align="center"><?php echo $row["pubyear"]?></td>
+            <td align="center"><?php echo $row["price"]?></td>
+        </tr>
+        <?php
+            }
+            $pdo = null;
+        ?>
     </table>
 </body>
 
